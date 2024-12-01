@@ -2,7 +2,6 @@
 # conditioning sectioning
 # mathematical operations
 # logical operations
-# functions
 import numpy as np
 # create 1d array
 arr1d = np.array([10,20,30,40,50])
@@ -86,3 +85,13 @@ print(np.logical_and(arr1d1,arr1d2)) # and operator
 print(np.logical_or(arr1d1,arr1d2)) # or operator
 print(np.logical_not(arr1d1)) # not operator
 print(np.logical_xor(arr1d1,arr1d2)) # xor operator
+
+
+# TODO: functions
+
+def add_constant(arr,constant):
+    return arr + constant
+
+arr = np.array([1,2,3])
+result = add_constant(arr,5)
+print("result after adding constant: ", result)
