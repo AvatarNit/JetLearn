@@ -35,3 +35,13 @@ def performOp(x,y,op):
         return divide(x,y)
 
 print("5 + 4 =" , performOp(5,4,"+") , "\n5 - 4 =" , performOp(5,4,"-") , "\n5 x 4 =" , performOp(5,4,"*") , "\n5 / 4 =" , performOp(5,4,"/"))
+
+# Task 4
+def getEven(list1):
+    tempList = []
+    for i in list1:
+        if i % 2 == 0:
+            tempList.append(i)
+    return tempList
+
+print(getEven([1,2,3,4,5,6,7,8,9]))
