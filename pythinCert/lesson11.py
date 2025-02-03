@@ -60,3 +60,16 @@ try:
     list1.insrt(1)
 except AttributeError:
     print("Insrt does not exist")
+
+
+# Task 10
+try:
+    num1 = int(input("Input a number: "))
+    num2 = int(input("Input a number: "))
+    print(num1/num2)
+except:
+    print("Bad Input")
+else:
+    print("You didn't divide by zero!!")
+finally:
+    print("Numbers are great")
