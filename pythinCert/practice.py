@@ -95,3 +95,27 @@ for word in sentence:
         words[word.lower()] = 1
 
 print(words)
+
+
+students = {}
+
+while True:
+    option = int(input("1. Create/Update Student\n2. Delete Student\n3.View Student\n4. Exit"))
+    if option == 1:
+        name = input("What is the students name: ")
+        id = int(input("What is the students id: "))
+        grade = int(input("What is the students grade: "))
+        tempStudent = {"id" : id, "grade" : grade}
+        students[name] = tempStudent
+    elif option == 2:
+        name = input("What is the name of the student you want to delete: ")
+        if name in students:
+            del students[name]
+            print("Deletion Succesful")
+        else:
+            print("Student not found")
+    elif option == 3:
+        name = input("What is the students name: ")
+        print(students[name])
+    else:
+        break
