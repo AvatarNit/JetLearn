@@ -1,0 +1,18 @@
+Types of Machine Learning:
+Supervised - labeled data
+Unsupervised - finding patterns
+Reinforced - learn from mistakes
+
+Types of Machine Learning Problems:
+Clasification - Catergorize
+Regression - infinte categories
+Reccomendation - use the past to predict future
+
+Steps:
+1. Gather and load data
+2. Data Preprocessing: (Clean Data, convert to numerical)
+3. Data Analysis: find input,ouput, and remove rest
+4. Define Inputs(Features) and Output(Target) most commonly x & y
+5. Split data into testing and training data. Testing 20-25%. Training 75-80%
+6. Select best machine learning algrorithm for the problem and train the algorithm
+7. perform predicitions and test predictions with real result and calculate accuracy
