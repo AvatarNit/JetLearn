@@ -54,6 +54,21 @@ fig5 = px.bar(top8_Confirmed,x="Confirmed",y=top8_Confirmed.index,height=600,col
 
 fig5.write_html("fig5.html",auto_open=True)
 
+top8_Recovered = pd.DataFrame(data.groupby("Country") ["Recovered"].sum().nlargest(8).sort_values(ascending=False))
+fig6 = px.bar(top8_Recovered,x="Recovered",y=top8_Recovered.index,height=600,color="Recovered",orientation="h",color_continuous_scale=["deepskyblue","red"], title="Top 8 Recovered Cases")
+
+fig6.write_html("fig6.html",auto_open=True)
+
+top8_Deaths = pd.DataFrame(data.groupby("Country") ["Deaths"].sum().nlargest(8).sort_values(ascending=False))
+fig7 = px.bar(top8_Deaths,x="Deaths",y=top8_Deaths.index,height=600,color="Deaths",orientation="h",color_continuous_scale=["deepskyblue","red"], title="Top 8 Deaths Cases")
+
+fig7.write_html("fig7.html",auto_open=True)
+
+top8_Active = pd.DataFrame(data.groupby("Country") ["Active"].sum().nlargest(8).sort_values(ascending=False))
+fig8 = px.bar(top8_Active,x="Active",y=top8_Active.index,height=600,color="Active",orientation="h",color_continuous_scale=["deepskyblue","red"], title="Top 8 Active Cases")
+
+fig8.write_html("fig8.html",auto_open=True)
+
 
 topstates_brazil = data["Country"] == "Brazil"
 topstates_brazil = data[topstates_brazil].nlargest(5,"Confirmed")
@@ -67,3 +82,35 @@ fig9 = go.Figure(data = [
 fig9.update_layout(title="Most Affected States in Brazil",barmode="stack",height=600)
 
 fig9.write_html("fig9.html",auto_open=True)
+
+
+
+topstates_us = data["Country"] == "US"
+topstates_us = data[topstates_us].nlargest(15,"Confirmed")
+
+fig10 = go.Figure(data = [
+    go.Bar(name="Recovered Cases",x=topstates_us["State"],y=topstates_us["Recovered"]),
+    go.Bar(name="Confirmed Cases",x=topstates_us["State"],y=topstates_us["Confirmed"]),
+    go.Bar(name="Death Cases",x=topstates_us["State"],y=topstates_us["Deaths"])
+])
+
+fig10.update_layout(title="Most Affected States in US",barmode="stack",height=600)
+
+fig10.write_html("fig10.html",auto_open=True)
+
+
+
+topstates_india = data["Country"] == "India"
+topstates_india = data[topstates_india].nlargest(5,"Confirmed")
+
+fig11 = go.Figure(data = [
+    go.Bar(name="Recovered Cases",x=topstates_india["State"],y=topstates_india["Recovered"]),
+    go.Bar(name="Confirmed Cases",x=topstates_india["State"],y=topstates_india["Confirmed"]),
+    go.Bar(name="Death Cases",x=topstates_india["State"],y=topstates_india["Deaths"])
+])
+
+fig11.update_layout(title="Most Affected States in India",barmode="stack",height=600)
+
+fig11.write_html("fig11.html",auto_open=True)
+
+
