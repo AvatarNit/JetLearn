@@ -1,51 +1,57 @@
+# Linear Regression
+
+X = [1,2,3,4,5]
+Y = [1,3,2,3,5]
+
+def findMean(inList):
+    return sum(inList)/len(inList)
+
+meanX = findMean(X)
+meanY = findMean(Y)
+
+print(f"Mean X: {meanX} \nMean Y: {meanY}")
+
+#m = sum((xi-mean(x)) * (yi-mean(y))) / sum((xi – mean(x))^2)
+
+num = 0
+den = 0
+
+for i in range(len(X)):
+    num += ((X[i] - meanX)*(Y[i] - meanY))
+    den += pow((X[i]-meanX),2)
+
+m = round(num/den,1)
+
+#m = sum((xi-mean(x)) * (yi-mean(y))) / sum((xi – mean(x))^2)
+# c = mean(y) - m * mean(x)
+c= round(meanY - m * meanX,1)
+
+print(f"Manual Method:\n    m = {m}\n    c = {c}")
+
+# Machine Learning
 import numpy as np
+from sklearn.linear_model import LinearRegression
 
-# from random import randint
-# array:
-list = [1,2,3,4,5]
-print(list)
+X = np.array([[1],[2],[3],[4],[5]])
+Y = np.array([[1],[3],[2],[3],[5]])
 
-numpy_arr = np.array(list)
-print(numpy_arr)
+Reg = LinearRegression()
 
-words = ["nishtha", "nithik", "rynav"]
-numpy_words = np.array(words)
-print(numpy_words)
+Reg = Reg.fit(X,Y)
 
-a = np.array([1,2,3])
-b = np.array([[1,2], [3,4]])
-print(b)
+print(f"ML Method:\n    m = {Reg.coef_}\n    c = {Reg.intercept_}")
 
-# ndim --> dimension of array
-print(a.ndim)
-print(b.ndim)
 
-# The shape of an array
-c = np.array([[1,2], [3,4], [4,5], [5,6]])
-print(c.shape)
 
-# Multidimensional Array
-d = np.array([[[1,2], [3,4]], [[5,6], [7,8]]])
-print(c)
 
-# Accessing elements
-e = np.array([[10,20,30], [40,50,60]])
-print(e[0][1])
-print(e[1][-1])
+#m = sum((xi-mean(x)) * (yi-mean(y))) / sum((xi – mean(x))^2)
+# c = mean(y) - m * mean(x)
 
-# arrange() --> 
-f = np.arange(0, 10, 2)
-print(f)
+x2 = np.array([[1],[2],[3],[4],[5]])
+y2 = np.array([[2],[4],[6],[8],[10]])
 
-# reshaping of array
-g = np.array([1,2,3,4,5,6])
-new_g = g.reshape(2,3)
-print(new_g)
+Reg2 = LinearRegression()
 
-# permutation --> random shuffled array
-h = np.array([1,2,3,4,5])
-print(np.random.permutation(h))
+Reg2.fit(x2,y2)
 
-# sorting
-i = np.array([6,5,7,3,2])
-print(np.sort(i))
+print(f"ML Method:\n    m = {Reg2.coef_}\n    c = {Reg2.intercept_}")
