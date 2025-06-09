@@ -39,3 +39,62 @@ print("After Scaler: \n" , set(data["Prep Time"]))
 print(data.info())
 print(data.describe())
 print(data.head())
+
+topPrepDish10 = data.nlargest(10,"Prep Time")
+
+fig1 = go.Figure()
+
+fig1.add_trace(go.Bar(x=topPrepDish10["Dish Name"], y=topPrepDish10["Prep Time"], marker_color='orange'))
+fig1.update_layout(
+    title="Top 10 Recipes by Prep Time",
+    xaxis_title="Recipes",
+    yaxis_title="Preptime"
+)
+
+fig1.write_html("fig1.html",auto_open=True)
+
+
+
+
+topViewDish10 = data.nlargest(10,"Views")
+
+fig2 = go.Figure()
+
+fig2.add_trace(go.Bar(x=topViewDish10["Dish Name"], y=topViewDish10["Views"], marker_color='green'))
+fig2.update_layout(
+    title="Top 10 Recipes by Views",
+    xaxis_title="Recipes",
+    yaxis_title="Views"
+)
+
+fig2.write_html("fig2.html",auto_open=True)
+
+
+
+topRatingDish10 = data.nlargest(10,"Rating")
+
+fig3 = go.Figure()
+
+fig3.add_trace(go.Bar(x=topRatingDish10["Dish Name"], y=topRatingDish10["Rating"], marker_color='green'))
+fig3.update_layout(
+    title="Top 10 Recipes by Rating",
+    xaxis_title="Recipes",
+    yaxis_title="Rating"
+)
+
+fig3.write_html("fig3.html",auto_open=True)
+
+
+
+bottomRatingDish10 = data.nsmallest(10,"Rating")
+
+fig4 = go.Figure()
+
+fig4.add_trace(go.Bar(x=bottomRatingDish10["Dish Name"], y=bottomRatingDish10["Rating"], marker_color='red'))
+fig4.update_layout(
+    title="Bottom 10 Recipes by Rating",
+    xaxis_title="Recipes",
+    yaxis_title="Rating"
+)
+
+fig4.write_html("fig4.html",auto_open=True)
