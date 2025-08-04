@@ -55,7 +55,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 cv = CountVectorizer(ngram_range=(1,2))
 
 XTrainVectored = cv.fit_transform(XTrainLematized)
-XTestVectored = cv.fit_transform(XTestLematized)
+XTestVectored = cv.transform(XTestLematized)
 
 from sklearn.ensemble import RandomForestClassifier
 
